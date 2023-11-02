@@ -26,5 +26,19 @@ export class UsersService {
   async remove(id: number): Promise<void> {
      await this.usersRepository.delete(id);
   }
+
+  
+async update(id: number, updateUserDto: CreateUserDto): Promise<User | null> {
+  const updatedUser = await this.usersRepository.preload({
+    id: id,
+    ...updateUserDto,
+  });
+  
+  if (!updatedUser) {
+    return null; // Trả về null nếu không tìm thấy người dùng
+  }
+
+  return await this.usersRepository.save(updatedUser);
+}
 }
 
