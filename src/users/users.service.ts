@@ -15,16 +15,15 @@ export class UsersService {
   }
 
   async findOne(id: number): Promise<User | null> {
-    if(this.usersRepository.findOneBy({id}) != null){
-      return await this.usersRepository.findOneBy({id});
-    }
-    else{
-      const check_id = id;
-      console.log(check_id);
-    }
+    return await this.usersRepository.findOneBy({id});
+  }
+  async create(createUserDto: CreateUserDto): Promise<User | null> {
+    const newUser = await this.usersRepository.create(createUserDto);
+    return await this.usersRepository.save(newUser);
   }
 
   async remove(id: number): Promise<void> {
-    await this.usersRepository.delete(id);
+     await this.usersRepository.delete(id);
   }
 }
+import { CreateUserDto } from './user.dto';
