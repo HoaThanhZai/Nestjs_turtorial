@@ -34,6 +34,6 @@ export class UserService {
     }
 
     async findBySex(sex: string): Promise<User[]> {
-        return await this.usersRepository.find({ where: { sex } });
+        return await this.usersRepository.find({ where: {sex : sex } });
       }
 }

@@ -24,7 +24,12 @@ export class UserController {
         return await this.userService.findByAge(UserAge);
 
     } 
+    @Get("bySex/:UserSex")
+    async findbySex(@Param("UserSex") UseSex : string)
+    {
+        return await this.userService.findBySex(UseSex);
 
+    } 
     @Post()
     async createUser(@Body() createUserDto : CreateUserDto ) {
         return await this.userService.create(createUserDto);
