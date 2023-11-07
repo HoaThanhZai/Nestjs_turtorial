@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/user.module';
 
-import { UsersModule } from './users/users.module';
-import { UsersController } from './users/users.controller';
-import { UsersService } from './users/users.service';
 
 @Module({
   imports: [
@@ -17,7 +15,7 @@ import { UsersService } from './users/users.service';
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,
     }),
-    UsersModule,
+    UserModule,
   ],
   controllers: [],
   providers: [],
