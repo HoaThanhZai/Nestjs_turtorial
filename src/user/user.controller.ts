@@ -18,7 +18,7 @@ export class UserController {
         return this.userService.findbyId(Userid);
      }
 
-    @Get(":UserAge")
+    @Get("byAge/:UserAge")
     async findbyAge(@Param("UserAge") UserAge : number)
     {
         return await this.userService.findByAge(UserAge);
@@ -31,7 +31,7 @@ export class UserController {
     }
 
     @Delete(":UserId")
-    async deleteOne(@Param("UserId") UserId : number)
+    async deleteOne(@Param("UserId") UserId : number): Promise<void>
     {
         await this.userService.deleteOne(UserId);
     }

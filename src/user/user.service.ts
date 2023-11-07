@@ -30,7 +30,7 @@ export class UserService {
     }
 
     async findByAge(age: number): Promise<User[]> {
-        return await this.usersRepository.find({ where: { age } });
+        return await this.usersRepository.find({ where : {age : age } });
     }
 
     async findBySex(sex: string): Promise<User[]> {
