@@ -6,4 +6,3 @@ export class CreateUserDto {
     age : number;
     sex: string;
   }
-    
